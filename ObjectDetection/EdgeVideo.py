@@ -6,8 +6,8 @@ import imutils
 import time
 import cv2
 
-labelfile = 'TFLiteModel/mobilenet_ssd_v2/coco_labels.txt'
-modelfile = 'TFLiteModel/mobilenet_ssd_v2/mobilenet_ssd_v2_coco_quant_postprocess_edgetpu.tflite'
+labelfile = '../TFLiteModel/mobilenet_ssd_v2/coco_labels.txt'
+modelfile = '../TFLiteModel/mobilenet_ssd_v2/mobilenet_ssd_v2_coco_quant_postprocess_edgetpu.tflite'
 
 
 CONFIDENCE = 0.3
@@ -23,12 +23,12 @@ for row in open(labelfile):
     labels[int(classID)] = label.strip()
 
 # load the Google Coral object detection model
-print("[INFO] loading Coral model...")
+print("Loading Coral model...")
 model = DetectionEngine(modelfile)
 
 # initialize the video stream and allow the camera sensor to warmup
 print("Starting video stream...")
-video = 'TestVid/shazam.mp4'
+video = '../TestVid/shazam.mp4'
 
 cap = VideoStream(video)
 # vs = VideoStream(src=0).start()
