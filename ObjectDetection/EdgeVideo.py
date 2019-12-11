@@ -1,8 +1,5 @@
 from edgetpu.detection.engine import DetectionEngine
-from imutils.video import VideoStream
 from PIL import Image
-import argparse
-import imutils
 import time
 import cv2
 
@@ -30,12 +27,8 @@ model = DetectionEngine(modelfile)
 print("Starting video stream...")
 video = '../TestVid/shazam.mp4'
 
-cap = VideoStream(video)
-# vs = VideoStream(src=0).start()
-#vs = VideoStream(usePiCamera=False).start()
-
-#time.sleep(2.0)
-
+cap = cv2.VideoCapture(video)
+time.sleep(2.0)
 while True:
     ret, frame = cap.read()
     if ret:
